@@ -29,7 +29,10 @@ SECRET_KEY = 'django-insecure-+_mtyjy^qul)04(s^$i+re^-zpz(_-5i5!2xq+esmt+m0+zd)y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["web-production-b1142.up.railway.app"]
+ALLOWED_HOSTS = ["web-production-b1142.up.railway.app",
+                  ".railway.app",
+        "localhost",
+        "127.0.0.1",]
 
 
 # Application definition
@@ -65,9 +68,9 @@ MEDIA_URL='/cache/'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": os.getenv("DB_NAME"),
-        "USER": os.getenv("DB_USER"),
-        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "NAME": os.getenv("DB_NAME","railway"),
+        "USER": os.getenv("DB_USER", "root"),
+        "PASSWORD": os.getenv("DB_PASSWORD", ''),
         "HOST": os.getenv("DB_HOST", "127.0.0.1"),
         "PORT": os.getenv("DB_PORT", "3306"),
     }
